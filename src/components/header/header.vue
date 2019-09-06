@@ -66,33 +66,16 @@
 </template>
 
 <script>
-import axios from 'axios'
 import star from '../star/star.vue'
 export default {
+  props: ['seller'],
   data () {
     return {
-      seller: {},
       classMap: ['decrease', 'discount', 'special', 'invoice', 'guarantee'],
       detailShow: false
     }
   },
   methods: {
-    get_seller () {
-      let _this = this
-      axios.get('/seller')
-        .then(function (res) {
-          let { status, data: { errno, data: data1 } } = res
-          if (status === 200) {
-            if (errno === 0) {
-              _this.seller = data1
-              _this.sendMsg()
-            }
-          }
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-    },
     // 优惠信息的展开和收起
     showDetail () {
       this.detailShow = true
@@ -100,13 +83,6 @@ export default {
     hideDetail () {
       this.detailShow = false
     },
-    // 向父组件传值
-    sendMsg () {
-      this.$emit('func', this.seller.deliveryPrice, this.seller.minPrice)
-    }
-  },
-  created () {
-    this.get_seller()
   },
   components: {
     star

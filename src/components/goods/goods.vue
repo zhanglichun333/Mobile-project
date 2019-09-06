@@ -36,13 +36,11 @@
     <!-- 食物详情页 -->
     <food :food="food" ref="food"></food>
     <!-- 底部购物栏 -->
-    <shopcar :deliveryPrice="deliveryPrice" :minPrice="minPrice" :selectedFoods="selectedFoods" ref="shopcar"></shopcar>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import shopcar from '../shopcar/shopcar.vue'
 import carcontrol from '../carcontrol.vue'
 import food from '../food.vue'
 
@@ -68,17 +66,6 @@ export default {
         }
       }
       return 0
-    },
-    selectedFoods () {
-      let selectedFoods = []
-      this.goods.forEach(good => {
-        good.foods.forEach(food => {
-          if (food.count) {
-            selectedFoods.push(food)
-          }
-        })
-      })
-      return selectedFoods
     }
   },
   methods: {
@@ -108,7 +95,6 @@ export default {
     // 获取每个foodList的高度，放进数组里
     get_heightList () {
       let foodList = this.$refs.foodList
-      // console.log(foodList)
       let height = 0
       this.heightList.push(height)
       for (let i = 0; i < foodList.length; i++) {
@@ -132,9 +118,11 @@ export default {
       event.currentTarget.className = 'active menuList'
       goodList.scrollTop = scrollY
     },
-    // carcontraol子组件向父组件传值 event.target
+    // 子组件向父组件传值 carcontraol=>goods.vue=>App.vue(event.target)   goods.vue=>App.vue(goods)
     add (target) {
-      this.$refs.shopcar.drop(target)
+      this.$nextTick(() => {
+        this.$emit('getGoods', this.goods, target)
+      })
     },
     // 点击食物，进入食物详情页，把food和foodShow传入food.vue组件
     selectedFood (food) {
@@ -146,7 +134,6 @@ export default {
     this.get_goods()
   },
   components: {
-    shopcar,
     carcontrol,
     food
   }

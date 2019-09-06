@@ -11,8 +11,8 @@ export default new VueRouter({
   routes: [
     // 动态路径参数 以冒号开头
     { path: '/', redirect: '/goods' },
-    { path: '/goods', component: goods },
-    { path: '/ratings', component: ratings },
-    { path: '/seller', component: seller }
+    { name: 'goods', path: '/goods', component: goods },
+    { name: 'ratings', path: '/ratings', component: ratings },
+    { name: 'seller', path: '/seller', component: seller }
   ]
 })

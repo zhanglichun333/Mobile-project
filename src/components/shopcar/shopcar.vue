@@ -228,6 +228,8 @@ export default {
         background: #141d17
         margin: 0 12px
         padding: 6px
+        @media only screen and (max-width: 320px)
+          margin: 0 6px
         .inner
           text-align: center
           width: 44px
@@ -265,12 +267,19 @@ export default {
         border-right: 1px solid rgba(255, 255, 255, .1)
         &.heightLight
           color: #fff
+        @media only screen and (max-width: 320px)
+          padding-right: 6px
       .delivery
         display: inline-block
         position: relative
-        bottom: 8px
+        top: -8px
         font-size: 16px 
         padding-left: 12px
+        color: rgba(255, 255, 255, .4)
+        @media only screen and (max-width: 320px)
+          font-size: 12px
+          padding-left: 10px
+          top: -10px
     .right
       width: 105px
       font-size: 16px
@@ -279,6 +288,8 @@ export default {
       padding: 0 8px
       text-align: center
       background: #2b333b
+      @media only screen and (max-width: 320px)
+        width: 96px
       &.heightLight
         background: #00b43c
         color: #fff
