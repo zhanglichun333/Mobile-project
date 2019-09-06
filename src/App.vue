@@ -55,10 +55,10 @@ export default {
           console.log(error)
         })
     },
+    // 子组件向父组件传值 carcontraol=>goods.vue=>App.vue(event.target)，再触发shopcar.vue内部函数   goods.vue=>App.vue(goods)  
     getGoods (goods, target) {
       this.goods = goods
       this.$refs.shopcar.drop(target)
-      console.log(this.goods)
     }
   },
   created () {
