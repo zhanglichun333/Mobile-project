@@ -77,7 +77,6 @@ export default {
           if (status === 200) {
             if (errno === 0) {
               this.ratings = data1
-              console.log(this.ratings)
             }
           }
         })
@@ -185,8 +184,9 @@ export default {
     .wrapper
       .rating
         margin: 0 18px
-        padding: 18px 0
+        padding: 12px 0
         display: flex
+        border-bottom: 1px solid rgba(7, 17, 27, .1)
         .avatar
           width: 28px
           height: 28px

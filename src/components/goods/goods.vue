@@ -27,14 +27,14 @@
               <span class="oldPrice" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
             </div>
             <div class="control">
-              <carcontrol :food="food" @func="add"></carcontrol>
+              <carcontrol :food="food" @add="add"></carcontrol>
             </div>
           </div>
         </dd>
       </dl>
     </div>
     <!-- 食物详情页 -->
-    <food :food="food" ref="food"></food>
+    <food :food="food" ref="food"  @add="add"></food>
     <!-- 底部购物栏 -->
   </div>
 </template>

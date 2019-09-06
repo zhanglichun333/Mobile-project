@@ -20,7 +20,7 @@
           </div>
           <div class="add" v-if="!food.count || food.count ===0" @click="addFirst">加入购物车</div>
           <div class="control" v-if="food.count>0">
-            <carcontrol :food="food"></carcontrol>
+            <carcontrol :food="food" @add="add"></carcontrol>
           </div>
         </div>
         <split v-if="food.info"></split>
@@ -80,9 +80,13 @@ export default {
     hide () {
       this.foodShow = false
     },
-    // 点击加入购物车，this.totalCount = 1
+    // 1、首次点击加入购物车，this.totalCount = 1，2、实现小球动画：food.vue=>good.vue=>App.vue=>shopcar.vue event.target
     addFirst () {
       Vue.set(this.food, 'count', 1)
+      this.$emit('add', event.target)
+    },
+    //实现小球动画：carcontrol.vue => food.vue=> good.vue=> App.vue=> shopcar.vue event.target
+    add () {
       this.$emit('add', event.target)
     },
     // ratingSelect组件向父组件传值

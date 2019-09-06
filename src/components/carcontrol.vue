@@ -24,7 +24,7 @@ export default {
           Vue.set(this.food, 'count', 0)
       }
       this.food.count ++
-      this.$emit('func', event.target)
+      this.$emit('add', event.target)
     },
     reduce () {
       this.food.count --
