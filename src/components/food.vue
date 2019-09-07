@@ -55,7 +55,7 @@
 <script>
 import carcontrol from './carcontrol.vue'
 import split from './split.vue'
-import {formatDate} from '../assets/js/date.js'
+import { formatDate } from '../assets/js/date.js'
 import Vue from 'vue'
 import ratingSelect from './ratingSelect'
 export default {
@@ -85,15 +85,15 @@ export default {
       Vue.set(this.food, 'count', 1)
       this.$emit('add', event.target)
     },
-    //实现小球动画：carcontrol.vue => food.vue=> good.vue=> App.vue=> shopcar.vue event.target
+    // 实现小球动画：carcontrol.vue => food.vue=> good.vue=> App.vue=> shopcar.vue event.target
     add () {
       this.$emit('add', event.target)
     },
     // ratingSelect组件向父组件传值
-    select(type) {
+    select (type) {
       this.selectType = type
     },
-    toggle() {
+    toggle () {
       this.onlyContent = !this.onlyContent
     },
     // 每一条评论是否展开， 根据rateType text
