@@ -22,8 +22,7 @@ module.exports = {
         ws: true,
         changeOrigin: true
       }
-    },
-    port: 9000
+    }
   },
   publicPath: './'
 }
