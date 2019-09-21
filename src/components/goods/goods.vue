@@ -71,7 +71,7 @@ export default {
   methods: {
     // 后台数据获取goods
     get_goods () {
-      axios.get('/goods')
+      axios.get('/api/goods')
         .then(res => {
           let { status, data: { errno, data: data2 } } = res
           if (status === 200) {

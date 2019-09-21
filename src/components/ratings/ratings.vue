@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     get_ratings () {
-      axios.get('/ratings')
+      axios.get('/api/ratings')
         .then((res) => {
           let { status, data: { errno, data: data1 } } = res
           if (status === 200) {

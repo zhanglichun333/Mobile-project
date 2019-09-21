@@ -4,44 +4,47 @@ var app = express();
 
 var router = express.Router();
 
-var appData = require('./mock/data.json');
-var seller = appData.seller;
-var goods = appData.goods;
-var ratings = appData.ratings;
-
 router.get('/', function (req, res, next) {
   req.url = '/index.html';
   next();
 });
 
+app.use(router);
 
-router.get('/seller', function (req, res) {
+var appData = require('./mock/data.json');
+var seller = appData.seller;
+var goods = appData.goods;
+var ratings = appData.ratings;
+
+var apiRoutes = express.Router()
+
+apiRoutes.get('/seller', function (req, res) {
   res.json({
     errno: 0,
     data: seller
   });
 });
 
-router.get('/goods', function (req, res) {
+apiRoutes.get('/goods', function (req, res) {
   res.json({
     errno: 0,
     data: goods
   });
 });
 
-router.get('/ratings', function (req, res) {
+apiRoutes.get('/ratings', function (req, res) {
   res.json({
     errno: 0,
     data: ratings
   });
 });
 
-app.use(router);
+app.use('/api', apiRoutes);
 
-module.exports = app.listen(3000, function (err) {
+module.exports = app.listen(8081, function (err) {
   if (err) {
     console.log(err);
     return
   }
-  console.log('Listening at http://localhost:3000'  + '\n')
+  console.log('Listening at http://localhost:8081'  + '\n')
 });

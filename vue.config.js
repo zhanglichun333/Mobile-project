@@ -17,11 +17,13 @@ module.exports = {
   },
   devServer: {
     proxy: {
-      '/': {
-        target: 'http://localhost:3000/',
-        ws: false,
+      '/api': {
+        target: 'http://localhost:8081/',
+        ws: true,
         changeOrigin: true
       }
-    }
-  }
+    },
+    port: 9000
+  },
+  publicPath: './'
 }

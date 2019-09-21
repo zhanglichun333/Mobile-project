@@ -42,7 +42,7 @@ export default {
     // 获取商家信息seller
     get_seller () {
       let _this = this
-      axios.get('/seller')
+      axios.get('/api/seller')
         .then(function (res) {
           let { status, data: { errno, data: data1 } } = res
           if (status === 200) {
