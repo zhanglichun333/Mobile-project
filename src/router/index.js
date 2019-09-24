@@ -8,6 +8,7 @@ Vue.use(VueRouter)
 
 export default new VueRouter({
   linkActiveClass: 'active',
+  mode: 'history',
   routes: [
     // 动态路径参数 以冒号开头
     { path: '/', redirect: '/goods' },

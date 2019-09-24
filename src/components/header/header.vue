@@ -82,7 +82,7 @@ export default {
     },
     hideDetail () {
       this.detailShow = false
-    },
+    }
   },
   components: {
     star
