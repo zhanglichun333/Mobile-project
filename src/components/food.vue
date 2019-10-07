@@ -1,6 +1,6 @@
 <template>
   <transition name="move">
-    <div class="food" v-show="foodShow">
+    <div class="food" v-show="foodShow" v-touch:right="backBefore">
       <div class="back" @click="hide">
         <i class="icon-arrow_lift"></i>
       </div>
@@ -78,6 +78,9 @@ export default {
       this.foodShow = true
     },
     hide () {
+      this.foodShow = false
+    },
+    backBefore () {
       this.foodShow = false
     },
     // 1、首次点击加入购物车，this.totalCount = 1，2、实现小球动画：food.vue=>good.vue=>App.vue=>shopcar.vue event.target
